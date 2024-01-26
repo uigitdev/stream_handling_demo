@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:stream_handling/my_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:stream_handling/test_page_2.dart';
 import 'package:uigitdev_stream_holder/uigitdev_stream_holder.dart';
 
 class TestPage extends StatefulWidget {
@@ -90,12 +91,12 @@ class _TestPageState extends State<TestPage> {
                 child: Text('Add number'),
               ),
               TextButton(
-                onPressed: () => context.read<MyProvider>().numberStreamHolder.addError(ErrorHint('no-data')),
-                child: Text('Add error'),
-              ),
-              TextButton(
                 onPressed: () => print(context.read<MyProvider>().numberStreamHolder.data),
                 child: Text('Get current data'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => TestPage2())),
+                child: Text('New page'),
               ),
             ],
           ),
